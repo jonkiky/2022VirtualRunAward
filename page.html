@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/stack-interface.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/theme.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/custom.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,400i,500,600,700" rel="stylesheet">
+
+           <style type="text/css">
+           .background-image{
+            background-image:
+    linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)),
+    url('img/pietro-rampazzo-x5GcXFvJJhI-unsplash.jpg');
+            background-attachment: fixed;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+
+           }
+           .award{
+            padding: 10px;
+           }
+
+           .nft_header {
+                color: white;
+    font-weight: bolder;
+    text-align: center;
+        padding-top: 50px;
+           }
+    </style>
+
+            
+           
+
+    </head>
+ 
+    <body data-smooth-scroll-offset="77">
+        <div class="main-container  background-image">
+                <div class="container">
+                      <div class="row">
+                          <div class="col-md-1"></div>
+                        <div class="col-md-10"> 
+                    <div class="row" style="padding-top: 200px;">
+                        <div class="col-md-12" style=" text-align: center; padding: 10px;
+"> 
+                                  <a id="btn-download" class="btn btn--primary type--uppercase" href="#"> <span class="btn__text">DOWNLOAD</span> </a>
+                                 </div>
+                    </div>
+                    <div id="award">
+                     <div class="row">
+                        <div class="col-md-12 award"> 
+                                    <div > 
+                                        <a href="#"> <img alt="Image" src="template/d2.jpg"> </a>
+                                    </div>
+                                    </div>
+                    </div>
+                                     <div class="row">
+                        <div class="col-md-12 award"> 
+                                    <div > 
+                                        <a href="#"> <img alt="Image" src="template/d1.jpg"> </a>
+                                    </div>
+                                    </div>
+                    </div>
+                                     <div class="row">
+                        <div class="col-md-12 award"> 
+                                    <div > 
+                                        <a href="#"> <img alt="Image" src="template/d1.jpg"> </a>
+                                    </div>
+                         
+                        </div>
+                    </div>
+                      </div>
+                       <div class="col-md-1"></div>
+                    </div>
+                </div>
+                <div class="container">
+                      <div class="row">
+                        <div class="col-md-1"> </div>
+                        <div class="col-md-10">
+                            <h2 class="nft_header"> 恭喜你获得NFT奖状</h2>
+                        </div>
+                        <div class="col-md-1" style="
+                            padding-bottom: 200px;
+                        "> </div>
+                      </div>
+                </div>
+             </div>
+        </div>
+
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/jspdf.min.js"></script>
+        <script src="js/parallax.js"></script>
+        <script src="js/granim.min.js"></script>
+        <script src="js/countdown.min.js"></script>
+        <script src="js/smooth-scroll.min.js"></script>
+        <script src="js/scripts.js"></script>
+        <script type="text/javascript">
+
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const email = urlParams.get('email')
+console.log(email);
+
+var doc = new jsPDF();
+var specialElementHandlers = {
+    '#editor': function (element, renderer) {
+        return true;
+    }
+};
+
+
+$('#btn-download').click(function () {
+    doc.fromHTML($('#award').html(), 15, 15, {
+        'width': 700,
+        'elementHandlers': specialElementHandlers
+    });
+    doc.save('sample_file.pdf');
+});
+
+        </script>
+    </body>
+
+</html>
