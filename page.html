@@ -116,7 +116,7 @@ var specialElementHandlers = {
 
 $('#btn-download').click(function () {
  doc.fromHTML($('#award').html(), 0, 0, {
-    'width': $('#award').width(), // max width of content on PDF
+    'width': $('#award').width() * 5, // max width of content on PDF
     'elementHandlers': specialElementHandlers
 },
 function(bla){
