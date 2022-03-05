@@ -512,10 +512,10 @@ mr = (function (mr, $, window, document){
         
         //////////////// Append .background-image-holder <img>'s as CSS backgrounds
 
-	    $('.background-image-holder').each(function() {
-	        var imgSrc = $(this).children('img').attr('src');
-	        $(this).css('background', 'url("' + imgSrc + '")').css('background-position', 'initial').css('opacity','1');
-	    });
+        $('.background-image-holder').each(function() {
+            var imgSrc = $(this).children('img').attr('src');
+            $(this).css('background', 'url("' + imgSrc + '")').css('background-position', 'initial').css('opacity','1');
+        });
     };
 
     mr.components.documentReady.push(mr.backgrounds.documentReady);
@@ -1239,40 +1239,40 @@ mr = (function (mr, $, window, document){
     mr.granim = mr.granim || {};
 
     mr.granim.documentReady = function($){
-    	$('[data-gradient-bg]').each(function(index,element){
-    		var granimParent = $(this),
-    			granimID 	 = 'granim-'+index+'',
-				colours 	 = granimParent.attr('data-gradient-bg'),
-				pairs        = [],
-				tempPair     = [],
+        $('[data-gradient-bg]').each(function(index,element){
+            var granimParent = $(this),
+                granimID     = 'granim-'+index+'',
+                colours      = granimParent.attr('data-gradient-bg'),
+                pairs        = [],
+                tempPair     = [],
                 ao           = {},
-				count,
-				passes,
-				i,
+                count,
+                passes,
+                i,
                 themeDefaults,
                 
                 options;
 
-			// Canvas element forms the gradient background
-			granimParent.prepend('<canvas id="'+granimID+'"></canvas>');
+            // Canvas element forms the gradient background
+            granimParent.prepend('<canvas id="'+granimID+'"></canvas>');
 
             // Regular expression to match comma separated list of hex colour values
             passes = /^(#[0-9|a-f|A-F]{6}){1}([ ]*,[ ]*#[0-9|a-f|A-F]{6})*$/.test(colours);
 
             if(passes === true){
-            	colours = colours.replace(' ','');
-            	colours = colours.split(',');
-            	count = colours.length;
-            	// If number of colours is odd - duplicate last colour to make even array
-            	if(count%2 !== 0){
-            		colours.push(colours[count-1]);
-            	}
-            	for(i = 0; i < (count/2); i++){
+                colours = colours.replace(' ','');
+                colours = colours.split(',');
+                count = colours.length;
+                // If number of colours is odd - duplicate last colour to make even array
+                if(count%2 !== 0){
+                    colours.push(colours[count-1]);
+                }
+                for(i = 0; i < (count/2); i++){
                     tempPair = [];
                     tempPair.push(colours.shift());
                     tempPair.push(colours.shift());
                     pairs.push(tempPair);
-            	}
+                }
                 
                 // attribute overrides - allows per-gradient override of global options.
                 ao.states = {
@@ -1297,9 +1297,9 @@ mr = (function (mr, $, window, document){
             
             options = jQuery.extend({}, themeDefaults, mr.granim.options, ao);
             $(this).data('gradientOptions', options);
-    		var granimElement = $(this);
-    		var granimInstance = new Granim(options);
-    	});        
+            var granimElement = $(this);
+            var granimInstance = new Granim(options);
+        });        
     };
 
     mr.components.documentReadyDeferred.push(mr.granim.documentReady);
@@ -1948,18 +1948,18 @@ mr = (function (mr, $, window, document){
 
     mr.newsletters.documentReady = function($){
   
-  	var form,checkbox,label,id,parent,radio;
+    var form,checkbox,label,id,parent,radio;
     
     // Treat Campaign Monitor forms
     $('form[action*="createsend.com"]').each(function(){
-    	form = $(this);
+        form = $(this);
 
         // Override browser validation and allow us to use our own
         form.attr('novalidate', 'novalidate');
 
-    	// Give each text input a placeholder value
+        // Give each text input a placeholder value
 
-    	if(!form.is('.form--no-placeholders')){
+        if(!form.is('.form--no-placeholders')){
             form.find('input:not([checkbox]):not([radio])').each(function(){
                 var $input = $(this);
                 if(typeof $input.attr('placeholder') !== typeof undefined){
@@ -1986,30 +1986,30 @@ mr = (function (mr, $, window, document){
         }
 
 
-    	// Wrap select elements in template code
+        // Wrap select elements in template code
 
-    	form.find('select').wrap('<div class="input-select"></div>');
+        form.find('select').wrap('<div class="input-select"></div>');
 
-    	// Wrap radios elements in template code
+        // Wrap radios elements in template code
 
-    	form.find('input[type="radio"]').wrap('<div class="input-radio"></div>');
+        form.find('input[type="radio"]').wrap('<div class="input-radio"></div>');
 
-    	// Wrap checkbox elements in template code
+        // Wrap checkbox elements in template code
 
-    	form.find('input[type="checkbox"]').each(function(){
-    		checkbox = $(this);
-    		id = checkbox.attr('id');
-    		label = form.find('label[for='+id+']');
+        form.find('input[type="checkbox"]').each(function(){
+            checkbox = $(this);
+            id = checkbox.attr('id');
+            label = form.find('label[for='+id+']');
             if(!label.length){
                 label = $('<label for="'+id+'"></label>');
             }
-    		
-    		checkbox.before('<div class="input-checkbox" data-id="'+id+'"></div>');
-    		$('.input-checkbox[data-id="'+id+'"]').prepend(checkbox);
-    		$('.input-checkbox[data-id="'+id+'"]').prepend(label);
-    	});
+            
+            checkbox.before('<div class="input-checkbox" data-id="'+id+'"></div>');
+            $('.input-checkbox[data-id="'+id+'"]').prepend(checkbox);
+            $('.input-checkbox[data-id="'+id+'"]').prepend(label);
+        });
 
-    	form.find('button[type="submit"]').each(function(){
+        form.find('button[type="submit"]').each(function(){
             var button = $(this);
             button.addClass('btn');
             if(button.parent().is('p')){
@@ -2028,15 +2028,15 @@ mr = (function (mr, $, window, document){
 
     // Treat MailChimp forms
     $('form[action*="list-manage.com"]').each(function(){
-    	form = $(this);
+        form = $(this);
 
         // Override browser validation and allow us to use our own
         form.attr('novalidate', 'novalidate');
 
-    	// Give each text input a placeholder value
+        // Give each text input a placeholder value
         if(!form.is('.form--no-placeholders')){
-        	form.find('input:not([checkbox]):not([radio])').each(function(){
-        		var $input = $(this);
+            form.find('input:not([checkbox]):not([radio])').each(function(){
+                var $input = $(this);
                 if(typeof $input.attr('placeholder') !== typeof undefined){
                     if($input.attr('placeholder') === ""){
                         if($input.siblings('label').length){
@@ -2052,7 +2052,7 @@ mr = (function (mr, $, window, document){
                         $input.siblings('label').first().remove();
                     }
                 }
-        	});
+            });
         }else{
             form.find('input[placeholder]').removeAttr('placeholder');
         }
@@ -2066,37 +2066,37 @@ mr = (function (mr, $, window, document){
             });
         }
 
-    	// Wrap select elements in template code
+        // Wrap select elements in template code
 
-    	form.find('select').wrap('<div class="input-select"></div>');
+        form.find('select').wrap('<div class="input-select"></div>');
 
-    	// Wrap checboxes elements in template code
+        // Wrap checboxes elements in template code
 
-    	form.find('input[type="checkbox"]').each(function(){
-    		checkbox = jQuery(this);
-    		parent = checkbox.parent();
-    		label = parent.find('label');
+        form.find('input[type="checkbox"]').each(function(){
+            checkbox = jQuery(this);
+            parent = checkbox.parent();
+            label = parent.find('label');
             if(!label.length){
                 label = jQuery('<label>');
             }
-    		checkbox.before('<div class="input-checkbox"></div>');
-    		parent.find('.input-checkbox').append(checkbox);
-    		parent.find('.input-checkbox').append(label);
-    	});
+            checkbox.before('<div class="input-checkbox"></div>');
+            parent.find('.input-checkbox').append(checkbox);
+            parent.find('.input-checkbox').append(label);
+        });
 
-    	// Wrap radio elements in template code
+        // Wrap radio elements in template code
 
-    	form.find('input[type="radio"]').each(function(){
-    		radio = jQuery(this);
-    		parent = radio.closest('li');
-    		label = parent.find('label');
+        form.find('input[type="radio"]').each(function(){
+            radio = jQuery(this);
+            parent = radio.closest('li');
+            label = parent.find('label');
             if(!label.length){
                 label = jQuery('<label>');
             }
-    		radio.before('<div class="input-radio"></div>');
-    		parent.find('.input-radio').prepend(radio);
-    		parent.find('.input-radio').prepend(label);
-    	});
+            radio.before('<div class="input-radio"></div>');
+            parent.find('.input-radio').prepend(radio);
+            parent.find('.input-radio').prepend(label);
+        });
 
         // Convert MailChimp input[type="submit"] to div.button
 
@@ -2136,10 +2136,10 @@ mr = (function (mr, $, window, document){
 
     }); 
 
-	// Reinitialize the forms so interactions work as they should
+    // Reinitialize the forms so interactions work as they should
 
-	mr.forms.documentReady(mr.setContext('form.form--active'));
-		
+    mr.forms.documentReady(mr.setContext('form.form--active'));
+        
   };
 
   mr.newsletters.prepareAjaxAction = function(form){
@@ -2353,102 +2353,102 @@ mr = (function (mr, $, window, document){
 
 //////////////// EasyPiecharts
 mr = (function (mr, $, window, document){
-	  "use strict";
+      "use strict";
 
-		mr.easypiecharts = mr.easypiecharts || {};
-		mr.easypiecharts.pies = [];
-		mr.easypiecharts.options = mr.easypiecharts.options || {};
+        mr.easypiecharts = mr.easypiecharts || {};
+        mr.easypiecharts.pies = [];
+        mr.easypiecharts.options = mr.easypiecharts.options || {};
 
-		mr.easypiecharts.documentReady = function($){
+        mr.easypiecharts.documentReady = function($){
 
-		  	$('.radial').each(function(){
-		  		var chart              = jQuery(this),
-		  			  value              = 0,
-		  			  color              = '#000000',
-		  			  time               = 2000,
-		  			  pieSize            = 110,
-		  			  barWidth           = 3,
-		  			  defaults           = {},
-		  			  attributeOverrides = {},
-		  			  options;
+            $('.radial').each(function(){
+                var chart              = jQuery(this),
+                      value              = 0,
+                      color              = '#000000',
+                      time               = 2000,
+                      pieSize            = 110,
+                      barWidth           = 3,
+                      defaults           = {},
+                      attributeOverrides = {},
+                      options;
 
-		  		defaults = {
-		  			animate: ({duration: time, enabled: true}),
-		  			barColor: color,
-		  			scaleColor: false,
-		  			size: pieSize,
-		  			lineWidth: barWidth
-		  		};
+                defaults = {
+                    animate: ({duration: time, enabled: true}),
+                    barColor: color,
+                    scaleColor: false,
+                    size: pieSize,
+                    lineWidth: barWidth
+                };
 
-		  		if(typeof mr.easypiecharts.options.size !== typeof undefined){
+                if(typeof mr.easypiecharts.options.size !== typeof undefined){
             pieSize = mr.easypiecharts.options.size;
-		  		}
-		  		if(typeof chart.attr('data-timing') !== typeof undefined){
-		  			attributeOverrides.animate = {duration: parseInt(chart.attr('data-timing'), 10), enabled: true};
-		  		}
-		  		if(typeof chart.attr('data-color') !== typeof undefined){
-		  			attributeOverrides.barColor = chart.attr('data-color');
-		  		}
-		  		if(typeof chart.attr('data-size') !== typeof undefined){
-		  			pieSize = attributeOverrides.size = parseInt(chart.attr('data-size'), 10);
-		  		}
-		  		if(typeof chart.attr('data-bar-width') !== typeof undefined){
-		  			attributeOverrides.lineWidth = parseInt(chart.attr('data-bar-width'), 10);
-		  		}
+                }
+                if(typeof chart.attr('data-timing') !== typeof undefined){
+                    attributeOverrides.animate = {duration: parseInt(chart.attr('data-timing'), 10), enabled: true};
+                }
+                if(typeof chart.attr('data-color') !== typeof undefined){
+                    attributeOverrides.barColor = chart.attr('data-color');
+                }
+                if(typeof chart.attr('data-size') !== typeof undefined){
+                    pieSize = attributeOverrides.size = parseInt(chart.attr('data-size'), 10);
+                }
+                if(typeof chart.attr('data-bar-width') !== typeof undefined){
+                    attributeOverrides.lineWidth = parseInt(chart.attr('data-bar-width'), 10);
+                }
 
-		  		chart.css('height',pieSize).css('width',pieSize);
+                chart.css('height',pieSize).css('width',pieSize);
 
           
 
-		  		if(typeof mr.easypiecharts.options === 'object'){
+                if(typeof mr.easypiecharts.options === 'object'){
             options = jQuery.extend({}, defaults, mr.easypiecharts.options, attributeOverrides);
-		  		}
+                }
 
-		  		chart.easyPieChart(options);
-		  		chart.data('easyPieChart').update(0);
-		  	});
+                chart.easyPieChart(options);
+                chart.data('easyPieChart').update(0);
+            });
 
-		  	if($('.radial').length){
-		  		mr.easypiecharts.init($);
-		  		mr.easypiecharts.activate();
-		  		mr.scroll.listeners.push(mr.easypiecharts.activate);
-		  	}
+            if($('.radial').length){
+                mr.easypiecharts.init($);
+                mr.easypiecharts.activate();
+                mr.scroll.listeners.push(mr.easypiecharts.activate);
+            }
 
-	  };
+      };
 
-	  mr.easypiecharts.init = function($){
+      mr.easypiecharts.init = function($){
 
-			mr.easypiecharts.pies = [];
+            mr.easypiecharts.pies = [];
           
-			$('.radial').each(function(){
-			  var pieObject  = {},
-				  currentPie = jQuery(this);
+            $('.radial').each(function(){
+              var pieObject  = {},
+                  currentPie = jQuery(this);
 
-				  pieObject.element = currentPie;
-				  pieObject.value = parseInt(currentPie.attr('data-value'),10);
-				  pieObject.top = currentPie.offset().top;
-				  pieObject.height = currentPie.height()/2;
-				  pieObject.active = false;
-				  mr.easypiecharts.pies.push(pieObject);
-			});
-		};
+                  pieObject.element = currentPie;
+                  pieObject.value = parseInt(currentPie.attr('data-value'),10);
+                  pieObject.top = currentPie.offset().top;
+                  pieObject.height = currentPie.height()/2;
+                  pieObject.active = false;
+                  mr.easypiecharts.pies.push(pieObject);
+            });
+        };
 
-		mr.easypiecharts.activate = function(){
-			mr.easypiecharts.pies.forEach(function(pie){
-				if(Math.round((mr.scroll.y + mr.window.height)) >= Math.round(pie.top+pie.height)){
-					if(pie.active === false){
-						
-	                	pie.element.data('easyPieChart').enableAnimation();
-	                	pie.element.data('easyPieChart').update(pie.value);
-	                	pie.element.addClass('radial--active');
-	                	pie.active = true;
-					}
-	            }
-        	});
-		};
+        mr.easypiecharts.activate = function(){
+            mr.easypiecharts.pies.forEach(function(pie){
+                if(Math.round((mr.scroll.y + mr.window.height)) >= Math.round(pie.top+pie.height)){
+                    if(pie.active === false){
+                        
+                        pie.element.data('easyPieChart').enableAnimation();
+                        pie.element.data('easyPieChart').update(pie.value);
+                        pie.element.addClass('radial--active');
+                        pie.active = true;
+                    }
+                }
+            });
+        };
 
-	  mr.components.documentReadyDeferred.push(mr.easypiecharts.documentReady);
-	  return mr;
+      mr.components.documentReadyDeferred.push(mr.easypiecharts.documentReady);
+      return mr;
 
 }(mr, jQuery, window, document));
 
@@ -2713,32 +2713,32 @@ mr = (function (mr, $, window, document){
     
     mr.toggleClass.documentReady = function($){
         $('[data-toggle-class]').each(function(){
-        	var element = $(this),
+            var element = $(this),
                 data    = element.attr('data-toggle-class').split("|");
-        		
+                
 
             $(data).each(function(){
                 var candidate     = element,
                     dataArray     = [],
-            	    toggleClass   = '',
-            	    toggleElement = '',
+                    toggleClass   = '',
+                    toggleElement = '',
                     dataArray = this.split(";");
 
-            	if(dataArray.length === 2){
-            		toggleElement = dataArray[0];
-            		toggleClass   = dataArray[1];
-            		$(candidate).on('click',function(){
+                if(dataArray.length === 2){
+                    toggleElement = dataArray[0];
+                    toggleClass   = dataArray[1];
+                    $(candidate).on('click',function(){
                         if(!candidate.hasClass('toggled-class')){
                             candidate.toggleClass('toggled-class');
                         }else{
                             candidate.removeClass('toggled-class');
                         }
-            			$(toggleElement).toggleClass(toggleClass);
-            			return false;
-            		});
-            	}else{
-            		console.log('Error in [data-toggle-class] attribute. This attribute accepts an element, or comma separated elements terminated witha ";" followed by a class name to toggle');
-            	}
+                        $(toggleElement).toggleClass(toggleClass);
+                        return false;
+                    });
+                }else{
+                    console.log('Error in [data-toggle-class] attribute. This attribute accepts an element, or comma separated elements terminated witha ";" followed by a class name to toggle');
+                }
             });
         });
     };
@@ -2857,70 +2857,70 @@ mr = (function (mr, $, window, document){
     mr.video.options = mr.video.options || {};
     mr.video.options.ytplayer = mr.video.options.ytplayer || {};
     
-	  mr.video.documentReady = function($){
-	      
-			//////////////// Youtube Background
+      mr.video.documentReady = function($){
+          
+            //////////////// Youtube Background
 
-			if($('.youtube-background').length){
-				$('.youtube-background').each(function(){
+            if($('.youtube-background').length){
+                $('.youtube-background').each(function(){
 
 
-					var player = $(this),
-					
-					themeDefaults = {
-						containment: "self",
-						autoPlay: true,
-						mute: true,
-						opacity: 1
-					}, ao = {};
+                    var player = $(this),
+                    
+                    themeDefaults = {
+                        containment: "self",
+                        autoPlay: true,
+                        mute: true,
+                        opacity: 1
+                    }, ao = {};
 
           // Attribute overrides - provides overrides to the global options on a per-video basis
-					ao.videoURL = $(this).attr('data-video-url');
-					ao.startAt = $(this).attr('data-start-at')? parseInt($(this).attr('data-start-at'), 10): undefined;
+                    ao.videoURL = $(this).attr('data-video-url');
+                    ao.startAt = $(this).attr('data-start-at')? parseInt($(this).attr('data-start-at'), 10): undefined;
 
 
-					player.closest('.videobg').append('<div class="loading-indicator"></div>');
-					player.YTPlayer(jQuery.extend({}, themeDefaults, mr.video.options.ytplayer, ao));
-					player.on("YTPStart",function(){
-				  		player.closest('.videobg').addClass('video-active');
-					});	
+                    player.closest('.videobg').append('<div class="loading-indicator"></div>');
+                    player.YTPlayer(jQuery.extend({}, themeDefaults, mr.video.options.ytplayer, ao));
+                    player.on("YTPStart",function(){
+                        player.closest('.videobg').addClass('video-active');
+                    }); 
 
-				});
-			}
+                });
+            }
 
-			if($('.videobg').find('video').length){
-				$('.videobg').find('video').closest('.videobg').addClass('video-active');
-			} 
+            if($('.videobg').find('video').length){
+                $('.videobg').find('video').closest('.videobg').addClass('video-active');
+            } 
 
-			//////////////// Video Cover Play Icons
+            //////////////// Video Cover Play Icons
 
-			$('.video-cover').each(function(){
-			    var videoCover = $(this);
-			    if(videoCover.find('iframe[src]').length){
-			        videoCover.find('iframe').attr('data-src', videoCover.find('iframe').attr('src'));
-			        videoCover.find('iframe').attr('src','');
-			    }
-			});
+            $('.video-cover').each(function(){
+                var videoCover = $(this);
+                if(videoCover.find('iframe[src]').length){
+                    videoCover.find('iframe').attr('data-src', videoCover.find('iframe').attr('src'));
+                    videoCover.find('iframe').attr('src','');
+                }
+            });
 
-			$('.video-cover .video-play-icon').on("click", function(){
-			    var playIcon = $(this);
-			    var videoCover = playIcon.closest('.video-cover');
-			    if(videoCover.find('video').length){
-			        var video = videoCover.find('video').get(0);
-			        videoCover.addClass('reveal-video');
-			        video.play();
-			        return false;
-			    }else if(videoCover.find('iframe').length){
-			        var iframe = videoCover.find('iframe');
-			        iframe.attr('src',iframe.attr('data-src'));
-			        videoCover.addClass('reveal-video');
-			        return false;
-			    }
-			});
-	  };
+            $('.video-cover .video-play-icon').on("click", function(){
+                var playIcon = $(this);
+                var videoCover = playIcon.closest('.video-cover');
+                if(videoCover.find('video').length){
+                    var video = videoCover.find('video').get(0);
+                    videoCover.addClass('reveal-video');
+                    video.play();
+                    return false;
+                }else if(videoCover.find('iframe').length){
+                    var iframe = videoCover.find('iframe');
+                    iframe.attr('src',iframe.attr('data-src'));
+                    videoCover.addClass('reveal-video');
+                    return false;
+                }
+            });
+      };
 
-	  mr.components.documentReady.push(mr.video.documentReady);
-	  return mr;
+      mr.components.documentReady.push(mr.video.documentReady);
+      return mr;
 
 }(mr, jQuery, window, document));
 
@@ -2930,29 +2930,29 @@ mr = (function (mr, $, window, document){
     
     mr.wizard = mr.wizard || {};
 
-	  mr.wizard.documentReady = function($){
+      mr.wizard.documentReady = function($){
 
-			$('.wizard').each(function(){
-				var wizard = jQuery(this), themeDefaults = {};
+            $('.wizard').each(function(){
+                var wizard = jQuery(this), themeDefaults = {};
  
         themeDefaults = {
-					headerTag: "h5",
-				  bodyTag: "section",
-					transitionEffect: "slideLeft",
-					autoFocus: true
-				}      
-				
+                    headerTag: "h5",
+                  bodyTag: "section",
+                    transitionEffect: "slideLeft",
+                    autoFocus: true
+                }      
+                
 
-				if(!wizard.is('[role="application"][id^="steps-uid"]')){  	
-						wizard.steps(jQuery.extend({}, themeDefaults, mr.wizard.options));
-		
-		   	    wizard.addClass('active');
-		    }
-				
-		  });
-		};
+                if(!wizard.is('[role="application"][id^="steps-uid"]')){    
+                        wizard.steps(jQuery.extend({}, themeDefaults, mr.wizard.options));
+        
+                wizard.addClass('active');
+            }
+                
+          });
+        };
 
-	  mr.components.documentReady.push(mr.wizard.documentReady);
-	  return mr;
+      mr.components.documentReady.push(mr.wizard.documentReady);
+      return mr;
 
 }(mr, jQuery, window, document));

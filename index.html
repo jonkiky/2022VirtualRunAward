@@ -28,9 +28,9 @@
                         <div class="col-lg-5 col-md-7">
                             <h1>2022校联会云端长跑获奖系统</h1> <span class="h2 countdown color--primary" data-date="09/25/2018" data-fallback-text="Getting ready"></span>
                             <p class="lead">感谢您参加2022校联会云端长跑，请输入您的Email（字母都小写）来查询获奖信息。&nbsp;</p>
-                            <form action="//mrare.us8.list-manage.com/subscribe/post?u=77142ece814d3cff52058a51f&amp;id=f300c9cce8" data-success="Thanks for signing up.  Please check your inbox for a confirmation email." data-error="Please provide your email address.">
+                            <form action="./page.html"data-error="Please provide your email address.">
                                 <div class="row">
-                                    <div class="col-12"> <input class="validate-required validate-email" type="email" name="EMAIL" id="input-email" placeholder="Email Address"> </div>
+                                    <div class="col-12"> <input class="validate-required validate-email" type="email" name="email" id="input-email" placeholder="Email Address"> </div>
                                     <div class="col-12"> <button type="submit" id="btn-submit" class="btn btn--primary type--uppercase">查询获奖信息</button> </div>
                                     <div style="position: absolute; left: -5000px" aria-hidden="true"> <input type="text" name="b_77142ece814d3cff52058a51f_f300c9cce8" tabindex="-1" value=""> </div>
                                 </div>
@@ -46,11 +46,26 @@
         <script src="js/smooth-scroll.min.js"></script>
         <script src="js/scripts.js"></script>
         <script type="text/javascript">
-            $("#btn-submit").click(function(){
-                // get email 
-                let email = $("#input-email").val()
-                window.location.replace("./page.html?email="+email);
+            function ValidateEmail(mail) 
+            {
+                if(mail!=""){
+                    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.emailAddr.value))
+                          {
+                            return (true)
+                          }
+                }
+             
+                alert("You have entered an invalid email address!")
+                return (false)
+            }
 
+            $("#btn-submit").click(function(){
+                 var email  = $("#input-email").val();
+                 if (ValidateEmail(email)){
+                        return true;
+                 }
+                    return false;
+                 
             })
 
         </script>
