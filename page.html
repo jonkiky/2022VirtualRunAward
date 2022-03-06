@@ -73,42 +73,15 @@
     <body data-smooth-scroll-offset="77">
         <div class="main-container  background-image">
                 <div class="container">
-                      <div class="row">
+                      <div class="row" style="padding-top: 200px;">
                           <div class="col-md-1"></div>
-                        <div class="col-md-10"> 
-                    <div class="row" style="padding-top: 200px;">
-                        <div class="col-md-12" style=" text-align: center; padding: 10px;">  
-                                  <a id="btn-home" class="btn btn--primary type--uppercase" href="index.html"> <span class="btn__text">Home</span> </a>
-                                  <a id="btn-download" class="btn btn--primary type--uppercase" href="#"> <span class="btn__text">DOWNLOAD</span> </a>
-                                 </div>
-                    </div>
+                        <div class="col-md-10" style=" text-align: center;"> 
+                         <div class="row">
+                        <div class="col-md-12"> 
+                                      <a id="btn-home" class="btn btn--primary type--uppercase" href="index.html"> <span class="btn__text">Home</span> </a>
+                                </div>
+                        </div>
                     <div id="award">
-                     <div class="row">
-                        <div class="col-md-12 award award1"> 
-                                    <div class="award-pic"> 
-                                        <a href="#"> <img alt="Image" src="template/d1.jpg"> </a>
-                                        <div > 
-                                        <div id="award1-xiaoyou" class="award1">浙江大学</div>
-                                        <div id="award1-bianhao" class="award1">12312</div>
-                                        <div id="award1-name" class="award1">陈益振</div>
-                                    </div>
-                                    </div>
-                                    
-                         </div>
-                    </div>
-                                   <div class="row">
-                        <div class="col-md-12 award award1"> 
-                                    <div class="award-pic"> 
-                                        <a href="#"> <img alt="Image" src="template/d1.jpg"> </a>
-                                        <div > 
-                                        <div id="award1-xiaoyou" class="award1">浙江大学</div>
-                                        <div id="award1-bianhao" class="award1">12312</div>
-                                        <div id="award1-name" class="award1">陈益振</div>
-                                    </div>
-                                    </div>
-                                    
-                         </div>
-                    </div>
                       </div>
                        <div class="col-md-1"></div>
                     </div>
@@ -117,10 +90,10 @@
                       <div class="row">
                         <div class="col-md-1"> </div>
                         <div class="col-md-10">
-                            <h2 class="nft_header"> 恭喜你获得NFT奖状</h2>
+                            
                         </div>
                         <div class="col-md-1" style="
-                            padding-bottom: 200px;
+                            padding-bottom: 500px;
                         "> </div>
                       </div>
                 </div>
@@ -142,6 +115,59 @@ const urlParams = new URLSearchParams(queryString);
 const email = urlParams.get('email')
 console.log(email);
 
+// check if email is not given
+if(email == null){
+  window.location.href = "index.html";
+}
+const dataAPI = "https://raw.githubusercontent.com/jonkiky/2022virtualRunData/main/data.json"
+
+// reads awards info from API
+
+$.getJSON( dataAPI, function( data ) {
+  console.log(data);
+  // finds awards associated with given email. 
+  var awards = []
+  for (var i = data.length - 1; i >= 0; i--) {
+    if(email == data[i].email){
+      awards.push(data[i])
+    }
+  }
+
+  console.log(awards);
+  var html = ""
+  // construct html
+  for (var i = awards.length - 1; i >= 0; i--) {
+    html = html.concat(" <div class=\"row\">"
++"                        <div class=\"col-md-12 award award1\"> "
++"                                    <div class=\"award-pic\"> "
++"                                        <a href=\"#\"> <img alt=\"Image\" src=\"template/d1.jpg\"> </a>"
++"                                        <div > "
++"                                        <div id=\"award1-xiaoyou\" class=\"award1\">浙江大学</div>"
++"                                        <div id=\"award1-bianhao\" class=\"award1\">12312</div>"
++"                                        <div id=\"award1-name\" class=\"award1\">陈益振</div>"
++"                                    </div>"
++"                                    </div>"
++"                                    "
++"                         </div>"
++"                    </div>") 
+  }
+
+
+  html_no_award = " <div class=\"row\">"
++"                        <div class=\"col-md-12 nft_header\"> "
++"                                    <h2 class=\"nft_header\"> 没有发现您的奖品，请继续努力。如有疑问请联系节目组。</h2>  "
++"                         </div>"
++"                    </div>"
+
+  if(html!=""){
+    $("#award").html(html)
+  }else{
+    $("#award").html(html_no_award)
+  }
+  
+});
+
+/*
 var doc = new jsPDF();
 var specialElementHandlers = {
     '#editor': function (element, renderer) {
@@ -213,7 +239,7 @@ $('#btn-download').click(function () {
   pdfMap();
 })
 
-
+*/
         </script>
     </body>
 
