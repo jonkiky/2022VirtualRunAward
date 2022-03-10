@@ -15,6 +15,10 @@
         .background-image-holder{
             background-position:unset!important;
         }
+
+        .btn-school {
+                width: 100%;
+        }
     </style>
     <body data-smooth-scroll-offset="77">
         <div class="nav-container"> </div>
@@ -31,7 +35,9 @@
                             <form action="./page.html"data-error="Please provide your email address.">
                                 <div class="row">
                                     <div class="col-12"> <input class="validate-required validate-email" type="email" name="email" id="input-email" placeholder="Email Address"> </div>
-                                    <div class="col-12"> <button type="submit" id="btn-submit" class="btn btn--primary type--uppercase">查询获奖信息</button> </div>
+                                    <div class="col-12"> <button type="submit" id="btn-submit" class="btn btn--primary type--uppercase">查询个人获奖信息</button> </div>
+                                    <div class="col-12"> <button type="button"class="btn btn-school type--uppercase"
+                                        onclick="location.href='awards.html';">查看团队获奖信息</button> </div>
                                     <div style="position: absolute; left: -5000px" aria-hidden="true"> <input type="text" name="b_77142ece814d3cff52058a51f_f300c9cce8" tabindex="-1" value=""> </div>
                                 </div>
                             </form>
