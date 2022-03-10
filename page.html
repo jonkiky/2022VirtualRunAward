@@ -34,7 +34,7 @@
            .award1{
             color: white;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 2vh;
            }
 
            .award-pic{
@@ -61,8 +61,63 @@
     position: absolute;
     left: 66%;
            }
-        
 
+            #award-ry-bianhao{
+             top: 35%;
+    position: absolute;
+    left: 47%;
+           }
+
+
+           #award-ry-name{
+                top: 57%;
+    position: absolute;
+    left: 66%;
+           }
+
+           #award1-rank{
+                position: absolute;
+    left: 55%;
+    top: 63%;
+    font-size: 3vh;
+           }
+
+
+            #award-nlc-rank{
+                 position: absolute;
+    left: 59%;
+    top: 63%;
+    font-size: 3vh;
+
+           }
+
+              #award-nvlc-rank{
+                 position: absolute;
+    left: 61%;
+    top: 63%;
+    font-size: 3vh;
+
+           }
+
+
+              #award-npc-rank{
+                 position: absolute;
+    left: 61%;
+    top: 63%;
+    font-size: 3vh;
+
+           }
+
+            #award-rt-rank{
+                 position: absolute;
+    left: 55%;
+    top: 63%;
+    font-size: 3vh;
+
+           }
+
+
+       
     </style>
 
             
@@ -137,19 +192,186 @@ $.getJSON( dataAPI, function( data ) {
   var html = ""
   // construct html
   for (var i = awards.length - 1; i >= 0; i--) {
-    html = html.concat(" <div class=\"row\">"
+
+    // 少年组
+    if(awards[i].award == "sn"){
+       html = html.concat(" <div class=\"row\">"
 +"                        <div class=\"col-md-12 award award1\"> "
 +"                                    <div class=\"award-pic\"> "
-+"                                        <a href=\"#\"> <img alt=\"Image\" src=\"template/d1.jpg\"> </a>"
++"                                        <a href=\"#\"> <img alt=\"Image\" src=\"template/1.png\"> </a>"
 +"                                        <div > "
-+"                                        <div id=\"award1-xiaoyou\" class=\"award1\">浙江大学</div>"
-+"                                        <div id=\"award1-bianhao\" class=\"award1\">12312</div>"
-+"                                        <div id=\"award1-name\" class=\"award1\">陈益振</div>"
++"                                        <div id=\"award1-xiaoyou\" class=\"award1\">"+awards[i].school+"</div>"
++"                                        <div id=\"award1-bianhao\" class=\"award1\">"+awards[i].number+"</div>"
++"                                        <div id=\"award1-name\" class=\"award1\">"+awards[i].name+"</div>"
 +"                                    </div>"
 +"                                    </div>"
 +"                                    "
 +"                         </div>"
 +"                    </div>") 
+
+    }
+
+
+    // 夫妻
+    if(awards[i].award == "fq"){
+       html = html.concat(" <div class=\"row\">"
++"                        <div class=\"col-md-12 award award1\"> "
++"                                    <div class=\"award-pic\"> "
++"                                        <a href=\"#\"> <img alt=\"Image\" src=\"template/9.png\"> </a>"
++"                                        <div > "
++"                                        <div id=\"award1-xiaoyou\" class=\"award1\">"+awards[i].school+"</div>"
++"                                        <div id=\"award1-bianhao\" class=\"award1\">"+awards[i].number+"</div>"
++"                                        <div id=\"award1-name\" class=\"award1\">"+awards[i].name+"</div>"
++"                                    </div>"
++"                                    </div>"
++"                                    "
++"                         </div>"
++"                    </div>") 
+
+    }
+
+ // 儿童
+    if(awards[i].award == "rt"){
+       html = html.concat(" <div class=\"row\">"
++"                        <div class=\"col-md-12 award award1\"> "
++"                                    <div class=\"award-pic\"> "
++"                                        <a href=\"#\"> <img alt=\"Image\" src=\"template/7.png\"> </a>"
++"                                        <div > "
++"                                        <div id=\"award1-xiaoyou\" class=\"award1\">"+awards[i].school+"</div>"
++"                                        <div id=\"award1-bianhao\" class=\"award1\">"+awards[i].number+"</div>"
++"                                        <div id=\"award1-name\" class=\"award1\">"+awards[i].name+"</div>"
++"                                        <div id=\"award-rt-rank\" class=\"award1\">"+awards[i].rank+"</div>"
+
++"                                    </div>"
++"                                    </div>"
++"                                    "
++"                         </div>"
++"                    </div>") 
+
+    }
+
+
+ // 荣誉奖  奖状tbd
+    if(awards[i].award == "ryj"){
+       html = html.concat(" <div class=\"row\">"
++"                        <div class=\"col-md-12 award award1\"> "
++"                                    <div class=\"award-pic\"> "
++"                                        <a href=\"#\"> <img alt=\"Image\" src=\"template/7.png\"> </a>"
++"                                        <div > "
++"                                        <div id=\"award-ry-bianhao\" class=\"award1\">"+awards[i].number+"</div>"
++"                                        <div id=\"award-ry-name\" class=\"award1\">"+awards[i].name+"</div>"
+
++"                                    </div>"
++"                                    </div>"
++"                                    "
++"                         </div>"
++"                    </div>") 
+
+    }
+
+
+ // 女子配速  
+    if(awards[i].award == "nvpeisu"){
+       html = html.concat(" <div class=\"row\">"
++"                        <div class=\"col-md-12 award award1\"> "
++"                                    <div class=\"award-pic\"> "
++"                                        <a href=\"#\"> <img alt=\"Image\" src=\"template/3.png\"> </a>"
++"                                        <div > "
++"                                        <div id=\"award1-xiaoyou\" class=\"award1\">"+awards[i].school+"</div>"
++"                                        <div id=\"award1-bianhao\" class=\"award1\">"+awards[i].number+"</div>"
++"                                        <div id=\"award1-name\" class=\"award1\">"+awards[i].name+"</div>"
++"                                        <div id=\"award-npc-rank\" class=\"award1\">"+awards[i].rank+"</div>"
+
++"                                    </div>"
++"                                    </div>"
++"                                    "
++"                         </div>"
++"                    </div>") 
+
+    }
+
+   
+   // 男子配速  
+    if(awards[i].award == "nanpeisu"){
+       html = html.concat(" <div class=\"row\">"
++"                        <div class=\"col-md-12 award award1\"> "
++"                                    <div class=\"award-pic\"> "
++"                                        <a href=\"#\"> <img alt=\"Image\" src=\"template/6.png\"> </a>"
++"                                        <div > "
++"                                        <div id=\"award1-xiaoyou\" class=\"award1\">"+awards[i].school+"</div>"
++"                                        <div id=\"award1-bianhao\" class=\"award1\">"+awards[i].number+"</div>"
++"                                        <div id=\"award1-name\" class=\"award1\">"+awards[i].name+"</div>"
++"                                        <div id=\"award-npc-rank\" class=\"award1\">"+awards[i].rank+"</div>"
+
++"                                    </div>"
++"                                    </div>"
++"                                    "
++"                         </div>"
++"                    </div>") 
+
+    }
+
+
+// 女子里程  
+    if(awards[i].award == "nvlicheng"){
+       html = html.concat(" <div class=\"row\">"
++"                        <div class=\"col-md-12 award award1\"> "
++"                                    <div class=\"award-pic\"> "
++"                                        <a href=\"#\"> <img alt=\"Image\" src=\"template/4.png\"> </a>"
++"                                        <div > "
++"                                        <div id=\"award1-xiaoyou\" class=\"award1\">"+awards[i].school+"</div>"
++"                                        <div id=\"award1-bianhao\" class=\"award1\">"+awards[i].number+"</div>"
++"                                        <div id=\"award1-name\" class=\"award1\">"+awards[i].name+"</div>"
++"                                        <div id=\"award-nvlc-rank\" class=\"award1\">"+awards[i].rank+"</div>"
+
++"                                    </div>"
++"                                    </div>"
++"                                    "
++"                         </div>"
++"                    </div>") 
+
+    }
+
+
+// 男子里程  
+    if(awards[i].award == "nanlicheng"){
+       html = html.concat(" <div class=\"row\">"
++"                        <div class=\"col-md-12 award award1\"> "
++"                                    <div class=\"award-pic\"> "
++"                                        <a href=\"#\"> <img alt=\"Image\" src=\"template/5.png\"> </a>"
++"                                        <div > "
++"                                        <div id=\"award1-xiaoyou\" class=\"award1\">"+awards[i].school+"</div>"
++"                                        <div id=\"award1-bianhao\" class=\"award1\">"+awards[i].number+"</div>"
++"                                        <div id=\"award1-name\" class=\"award1\">"+awards[i].name+"</div>"
++"                                        <div id=\"award-nlc-rank\" class=\"award1\">"+awards[i].rank+"</div>"
+
++"                                    </div>"
++"                                    </div>"
++"                                    "
++"                         </div>"
++"                    </div>") 
+
+    }
+
+
+
+ // 通勤
+    if(awards[i].award == "tongqing"){
+       html = html.concat(" <div class=\"row\">"
++"                        <div class=\"col-md-12 award award1\"> "
++"                                    <div class=\"award-pic\"> "
++"                                        <a href=\"#\"> <img alt=\"Image\" src=\"template/8.png\"> </a>"
++"                                        <div > "
++"                                        <div id=\"award1-bianhao\" class=\"award1\">"+awards[i].number+"</div>"
+
++"                                    </div>"
++"                                    </div>"
++"                                    "
++"                         </div>"
++"                    </div>") 
+
+    }
+
   }
 
 
