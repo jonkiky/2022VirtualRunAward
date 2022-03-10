@@ -183,7 +183,7 @@ $.getJSON( dataAPI, function( data ) {
   // finds awards associated with given email. 
   var awards = []
   for (var i = data.length - 1; i >= 0; i--) {
-    if(email == data[i].email){
+    if(email.toLowerCase() == data[i].email.toLowerCase()){
       awards.push(data[i])
     }
   }
