@@ -34,7 +34,7 @@
            .award1{
             color: white;
     font-weight: bold;
-    font-size: 2vh;
+    font-size: 3vh;
            }
 
            .award-pic{
@@ -49,7 +49,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    font-size: 2vh;
+    font-size: 2.5vh;
            }
 
            #award1-bianhao{
@@ -94,24 +94,24 @@
            #award1-rank{
                 position: absolute;
     left: 55%;
-    top: 62%;
-    font-size: 2vh;
+    top: 63%;
+    font-size: 2.5vh;
            }
 
 
             #award-nlc-rank{
                  position: absolute;
     left: 61%;
-    top: 62%;
-    font-size: 2vh;
+    top: 63%;
+    font-size: 2.5vh;
 
            }
 
               #award-nvlc-rank{
                  position: absolute;
     left: 61%;
-    top: 62%;
-    font-size: 2vh;
+    top: 63%;
+    font-size: 2.5vh;
 
            }
 
@@ -119,31 +119,31 @@
               #award-npc-rank{
                  position: absolute;
     left: 59%;
-    top: 62%;
-    font-size: 2vh;
+    top: 63%;
+    font-size: 2.5vh;
 
            }
 
             #award-rt-rank{
                  position: absolute;
     left: 55%;
-    top: 62%;
-    font-size: 2vh;
+    top: 63%;
+    font-size: 2.5vh;
 
            }
 
            #award-pjlc-rank {
     position: absolute;
-    left: 62%;
-    top: 62%;
-    font-size: 2vh;
+    left: 61.5%;
+    top: 63%;
+    font-size: 2.5vh;
 }
 
      #award-zlc-rank {
     position: absolute;
     left: 60%;
-    top: 62%;
-    font-size: 2vh;
+    top: 63%;
+    font-size: 2.5vh;
 }
  #award1-zlc-bianhao {
     top: 50%;
@@ -151,7 +151,7 @@
      left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    font-size: 2vh;
+    font-size: 2.5vh;
 }
 /* At the top level of your code */
 @media screen and (max-width: 400px) {
@@ -192,6 +192,28 @@
     left: 59%;
     top: 62%;
     font-size: 2vh;
+}
+
+ #award-nvlc-rank{
+                 position: absolute;
+    left: 61%;
+    top: 62%;
+    font-size: 2.5vh;
+
+           }
+
+           #award-nlc-rank {
+    position: absolute;
+    left: 61%;
+    top: 62%;
+    font-size: 2.5vh;
+
+}
+#award-npc-rank {
+    position: absolute;
+    left: 59%;
+    top: 62%;
+    font-size: 2.5vh;
 }
 }
 
@@ -261,7 +283,7 @@ $.getJSON( dataAPI, function( data ) {
   // finds awards associated with given email. 
   var awards = []
   for (var i = data.length - 1; i >= 0; i--) {
-    if(email.toLowerCase() == data[i].email.toLowerCase()){
+    if(data[i].email && email.toLowerCase() == data[i].email.toLowerCase()){
       awards.push(data[i])
     }
   }
