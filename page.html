@@ -448,7 +448,7 @@ $.getJSON( dataAPI, function( data ) {
 +"                                    <div class=\"award-pic\"> "
 +"                                        <a href=\"#\"> <img alt=\"Image\" src=\"template/8.png\"> </a>"
 +"                                        <div > "
-+"                                        <div id=\"award1-qc-bianhao\" class=\"award1\">"+awards[i].number+"</div>"
++"                                        <div id=\"award1-xiaoyou\" class=\"award1\">"+awards[i].school+" &nbsp;&nbsp;&nbsp;  "+awards[i].number+"    &nbsp;&nbsp;&nbsp;"+awards[i].name+"</div>"
 
 +"                                    </div>"
 +"                                    </div>"
@@ -501,6 +501,24 @@ $.getJSON( dataAPI, function( data ) {
 +"                        <div class=\"col-md-12 award award1\"> "
 +"                                    <div class=\"award-pic\"> "
 +"                                        <a href=\"#\"> <img alt=\"Image\" src=\"template/htzc.png\"> </a>"
++"                                        <div > "
++"                                        <div id=\"award1-bianhao\" class=\"award1\">"+awards[i].name+"</div>"
+
++"                                    </div>"
++"                                    </div>"
++"                                    "
++"                         </div>"
++"                    </div>") 
+
+    }
+
+    
+  // htzc
+    if(awards[i].award == "zzgx"){
+       html = html.concat(" <div class=\"row\">"
++"                        <div class=\"col-md-12 award award1\"> "
++"                                    <div class=\"award-pic\"> "
++"                                        <a href=\"#\"> <img alt=\"Image\" src=\"template/gxj.png\"> </a>"
 +"                                        <div > "
 +"                                        <div id=\"award1-bianhao\" class=\"award1\">"+awards[i].name+"</div>"
 
