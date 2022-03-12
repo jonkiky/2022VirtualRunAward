@@ -52,9 +52,16 @@
            #award1-bianhao{
              top: 45%;
     position: absolute;
-    left: 47%;
+    left: 42%;
+    font-size: 27px;
            }
 
+ #award1-qc-bianhao{
+             top: 45%;
+    position: absolute;
+     left: 42%;
+    font-size: 27px;
+           }
 
            #award1-name{
                 top: 45%;
@@ -116,6 +123,57 @@
 
            }
 
+           #award-pjlc-rank {
+    position: absolute;
+    left: 62%;
+    top: 63%;
+    font-size: 3vh;
+}
+
+     #award-zlc-rank {
+    position: absolute;
+    left: 60%;
+    top: 63%;
+    font-size: 3vh;
+}
+ #award1-zlc-bianhao {
+    top: 45%;
+    position: absolute;
+    left: 38%;
+}
+/* At the top level of your code */
+@media screen and (max-width: 400px) {
+    #award1-zlc-bianhao {
+    top: 45%;
+    position: absolute;
+    left: 38%;
+}
+
+ #award1-bianhao {
+  font-size: 2vh;
+  left: 44%;
+  }
+#award-ry-name {
+    top: 45%;
+    position: absolute;
+    left: 41%;
+    font-size: 4vh;
+}
+
+    #award-pjlc-rank {
+    position: absolute;
+    left: 61%;
+    top: 61%;
+    font-size: 3vh;
+}
+
+     #award-zlc-rank {
+    position: absolute;
+    left: 59%;
+    top: 61%;
+    font-size: 3vh;
+}
+}
 
        
     </style>
@@ -362,7 +420,7 @@ $.getJSON( dataAPI, function( data ) {
 +"                                    <div class=\"award-pic\"> "
 +"                                        <a href=\"#\"> <img alt=\"Image\" src=\"template/8.png\"> </a>"
 +"                                        <div > "
-+"                                        <div id=\"award1-bianhao\" class=\"award1\">"+awards[i].number+"</div>"
++"                                        <div id=\"award1-qc-bianhao\" class=\"award1\">"+awards[i].number+"</div>"
 
 +"                                    </div>"
 +"                                    </div>"
@@ -371,6 +429,62 @@ $.getJSON( dataAPI, function( data ) {
 +"                    </div>") 
 
     }
+
+
+  // zlc
+    if(awards[i].award == "zlc"){
+       html = html.concat(" <div class=\"row\">"
++"                        <div class=\"col-md-12 award award1\"> "
++"                                    <div class=\"award-pic\"> "
++"                                        <a href=\"#\"> <img alt=\"Image\" src=\"template/zlc.png\"> </a>"
++"                                        <div > "
++"                                        <div id=\"award1-zlc-bianhao\" class=\"award1\">"+awards[i].school+"</div>"
++"                                        <div id=\"award-zlc-rank\" class=\"award1\">"+awards[i].rank+"</div>"
++"                                    </div>"
++"                                    </div>"
++"                                    "
++"                         </div>"
++"                    </div>")
+
+
+}
+  // pjlc
+    if(awards[i].award == "pjlc"){
+       html = html.concat(" <div class=\"row\">"
++"                        <div class=\"col-md-12 award award1\"> "
++"                                    <div class=\"award-pic\"> "
++"                                        <a href=\"#\"> <img alt=\"Image\" src=\"template/pjlc.png\"> </a>"
++"                                        <div > "
++"                                        <div id=\"award1-zlc-bianhao\" class=\"award1\">"+awards[i].school+"</div>"
++"                                        <div id=\"award-pjlc-rank\" class=\"award1\">"+awards[i].rank+"</div>"
+
++"                                    </div>"
++"                                    </div>"
++"                                    "
++"                         </div>"
++"                    </div>") 
+
+    }
+
+
+  // htzc
+    if(awards[i].award == "htzc"){
+       html = html.concat(" <div class=\"row\">"
++"                        <div class=\"col-md-12 award award1\"> "
++"                                    <div class=\"award-pic\"> "
++"                                        <a href=\"#\"> <img alt=\"Image\" src=\"template/htzc.png\"> </a>"
++"                                        <div > "
++"                                        <div id=\"award1-bianhao\" class=\"award1\">"+awards[i].name+"</div>"
+
++"                                    </div>"
++"                                    </div>"
++"                                    "
++"                         </div>"
++"                    </div>") 
+
+    }
+
+      
 
   }
 
